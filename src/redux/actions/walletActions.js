@@ -1,5 +1,5 @@
 import { createActions } from 'redux-actions';
 
-import {} from '../constants';
+import { DEPOSIT_WALLET, WITHDRAWAL_WALLET } from '../constants';
 
-export const {} = createActions();
+export const { depositWallet, withdrawalWallet } = createActions(DEPOSIT_WALLET, WITHDRAWAL_WALLET);

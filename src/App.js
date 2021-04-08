@@ -1,19 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
-
-import WalletPage from 'components/walletPage';
-import Header from  'components/common/header';
+import WalletPage from './components/walletPage';
+import Header from './components/common/header';
 
 function App() {
   return (
     <div className="App">
-      <Router basename="/app">
+      <Router basename="/">
         <Header />
         <div className={'main-content'}>
           <Switch>
-            <Route path="/" component={WalletPage} />
+            <Redirect exact from="/" to="wallet" />
+            <Route path="/wallet" component={WalletPage} />
           </Switch>
         </div>
       </Router>

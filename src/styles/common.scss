@@ -1,0 +1,30 @@
+@import "variables";
+
+.header-container {
+  background-color: $main-blue;
+  color: $light-text;
+  height: 67px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: $middle-font-size;
+  padding: 0 25px;
+
+  .header-logo-block {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: $big-font-size;
+  }
+
+  .bitcoin-price-block {
+
+  }
+
+  .wallet-info-block {
+
+  }
+}
