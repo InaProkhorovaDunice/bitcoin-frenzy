@@ -1,28 +1,37 @@
 import { handleActions } from 'redux-actions';
 
-import { depositWallet, withdrawalWallet } from '../actions/walletActions';
+import {
+  depositWallet,
+  withdrawalWallet,
+  decreaseWalletAfterBuy,
+  increaseWalletAfterSell,
+} from '../actions/walletActions';
 
 import { INITIAL_WALLET_AMOUNT, ONE_TRANSACTION_AMOUNT } from '../../configs/initialVariables';
 
 const initialState = {
   walletAmount: INITIAL_WALLET_AMOUNT,
-  walletTransactionError: '',
+  oneTransactionAmount: ONE_TRANSACTION_AMOUNT,
 };
 
-const authHandler = {
+const walletHandler = {
   [depositWallet]: (state) => {
-    const updatedWalletAmount = state.walletAmount + ONE_TRANSACTION_AMOUNT;
-    return { ...state, amountOfDollars: updatedWalletAmount, walletTransactionError: '' };
+    const updatedWalletAmount = state.walletAmount + state.oneTransactionAmount;
+    return { ...state, walletAmount: updatedWalletAmount };
   },
   [withdrawalWallet]: (state) => {
-    if (state.walletAmount >= ONE_TRANSACTION_AMOUNT) {
-      const updatedWalletAmount = state.walletAmount - ONE_TRANSACTION_AMOUNT;
-      return { ...state, amountOfDollars: updatedWalletAmount, walletTransactionError: '' };
-    } else {
-      return { ...state, walletTransactionError: 'Sorry, insufficient funds for withdrawal' };
-    }
+    const updatedWalletAmount = state.walletAmount - state.oneTransactionAmount;
+    return { ...state, walletAmount: updatedWalletAmount };
+  },
+  [increaseWalletAfterSell]: (state, { payload }) => {
+    const updatedWalletAmount = state.walletAmount + payload;
+    return { ...state, walletAmount: updatedWalletAmount };
+  },
+  [decreaseWalletAfterBuy]: (state, { payload }) => {
+    const updatedWalletAmount = state.walletAmount - payload;
+    return { ...state, walletAmount: updatedWalletAmount };
   },
 };
 
-const walletReducer = handleActions(authHandler, initialState);
+const walletReducer = handleActions(walletHandler, initialState);
 export default walletReducer;

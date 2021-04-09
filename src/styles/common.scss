@@ -66,6 +66,11 @@
     .item-label {
       font-size: $small-font-size;
     }
+
+    .selected-item {
+      font-weight: bold;
+      color: $selected-item-color;
+    }
   }
 }
 
@@ -149,5 +154,10 @@
     margin: 24px auto 0;
     border: 1px solid $main-blue;
     border-radius: 10px;
+    cursor: pointer;
   }
+}
+
+.error-message {
+  color: red;
 }
