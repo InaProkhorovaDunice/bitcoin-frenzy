@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import '../../styles/common.scss';
 
-const HistoryItem = (props) => {
-  const { date, action } = props.info;
+const HistoryItem = ({ info }) => {
+  const { date, message } = info;
 
   return (
     <div className={'history-item-container'}>
       <p className={'item-date'}>{date}</p>
-      <p className={'item-action'}>{action}</p>
+      <p className={'item-action'}>{message}</p>
     </div>
   );
 };

@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { ONE_TRANSACTION_AMOUNT } from '../configs/initialVariables';
-import { formatNumericOutput } from '../utils';
+import { formatNumericOutput, getDate } from '../utils';
 import { depositWallet, withdrawalWallet } from '../redux/actions/walletActions';
+import { addEventToHistory } from '../redux/actions/historyActions';
 
 const WalletPage = () => {
   const dispatch = useDispatch();
@@ -12,8 +13,20 @@ const WalletPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const oneTransactionAmount = ONE_TRANSACTION_AMOUNT;
 
+  const getHistoryPayload = (action) => {
+    const date = getDate();
+    let message;
+    if (action === 'deposit') {
+      message = `${oneTransactionAmount}$ Deposit`;
+    } else {
+      message = `${oneTransactionAmount}$ Withdraw`;
+    }
+    return { date, message };
+  };
+
   const deposit = () => {
     dispatch(depositWallet());
+    dispatch(addEventToHistory(getHistoryPayload('deposit')));
     setErrorMessage('');
   };
 
@@ -22,6 +35,7 @@ const WalletPage = () => {
       setErrorMessage(`Sorry, you don't have enough funds for withdrawal`);
     } else {
       dispatch(withdrawalWallet());
+      dispatch(addEventToHistory(getHistoryPayload('withdraw')));
     }
   };
 

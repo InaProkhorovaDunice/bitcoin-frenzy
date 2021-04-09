@@ -5,9 +5,10 @@ import {
   BITCOIN_TRANSACTION_AMOUNT,
   BITCOIN_PRICE_DEMARCATION_LEVEL,
 } from '../configs/initialVariables';
-import { formatNumericOutput } from '../utils';
+import { formatNumericOutput, getDate } from '../utils';
 import { sellBitcoin } from '../redux/actions/bitcoinActions';
 import { increaseWalletAfterSell } from '../redux/actions/walletActions';
+import { addEventToHistory } from '../redux/actions/historyActions';
 
 const SellBitcoinPage = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,18 @@ const SellBitcoinPage = () => {
   const lowPriceMessage = 'Prices are low, are you sure you want to sell?';
   const highPriceMessage = 'Price are high, sell now!';
 
+  const getHistoryPayload = () => {
+    const date = getDate();
+    return { date, message: `Sold ${bitcoinTransactionAmount} Bitcoin` };
+  };
+
   const sell = () => {
     if (bitcoinAmount < bitcoinTransactionAmount) {
       setErrorMessage(`Sorry, you have no bitcoins to sell!`);
     } else {
       dispatch(sellBitcoin());
       dispatch(increaseWalletAfterSell(bitcoinPrice));
+      dispatch(addEventToHistory(getHistoryPayload()));
       setErrorMessage('');
     }
   };

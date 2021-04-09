@@ -1,17 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import HistoryItem from './historyItem';
 import '../../styles/common.scss';
 
 const RightSideBar = () => {
-  const historyItems = [
-    { date: '12233', action: 'dgfgfdg' },
-    { date: '222', action: 'aaaaa' },
-  ];
+  const historyItems = useSelector((state) => state.history.history);
 
   return (
     <div className={'right-bar-container'}>
-      {historyItems?.length &&
+      {historyItems?.length > 0 &&
         historyItems.map((el, index) => <HistoryItem info={el} key={index} />)}
     </div>
   );
