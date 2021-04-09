@@ -43,7 +43,6 @@ const BitcoinPricePage = () => {
     <div className={'wallet-container'}>
       <div className={'info-block'}>
         <p className={'info-message'}>{`Bitcoin price is ${formatNumericOutput(bitcoinPrice)}$`}</p>
-        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
         <div className={'price-action-block'}>
           <button className={classNames('big-button', 'action-button')} onClick={increasePrice}>
             <p className={'button-label'}>Increase Bitcoin</p>
@@ -54,6 +53,7 @@ const BitcoinPricePage = () => {
             <p className={'button-label'}>{`Price (-${formatNumericOutput(bitcoinPriceRange)})`}</p>
           </button>
         </div>
+        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
       </div>
     </div>
   );

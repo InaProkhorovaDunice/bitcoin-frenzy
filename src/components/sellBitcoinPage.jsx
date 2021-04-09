@@ -42,11 +42,11 @@ const SellBitcoinPage = () => {
         <p className={'info-message'}>{`${
           bitcoinPrice >= BITCOIN_PRICE_DEMARCATION_LEVEL ? highPriceMessage : lowPriceMessage
         }`}</p>
-        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
         <button
           className={'action-button'}
           onClick={sell}
         >{`Sell ${bitcoinTransactionAmount} Bitcoin`}</button>
+        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
       </div>
     </div>
   );

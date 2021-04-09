@@ -46,7 +46,6 @@ const WalletPage = () => {
         <p className={'info-message'}>{`You now own ${formatNumericOutput(
           bitcoinAmount,
         )} bitcoins`}</p>
-        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
         <div className={'action-block'}>
           <button className={'action-button'} onClick={deposit}>{`Deposit ${formatNumericOutput(
             oneTransactionAmount,
@@ -55,6 +54,7 @@ const WalletPage = () => {
             oneTransactionAmount,
           )}$`}</button>
         </div>
+        {errorMessage && <p className={'error-message'}>{errorMessage}</p>}
       </div>
     </div>
   );
