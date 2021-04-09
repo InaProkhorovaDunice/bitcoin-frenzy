@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import '../../styles/common.scss';
+import '../../styles/pages.scss';
 
 const NavItem = ({ item }) => {
   const { label, link } = item;

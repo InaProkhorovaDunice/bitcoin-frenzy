@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../../styles/common.scss';
+import '../../styles/pages.scss';
 
 const HistoryItem = ({ info }) => {
   const { date, message } = info;

@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { formatNumericOutput } from '../../utils';
-import '../../styles/common.scss';
+import { formatNumericOutput } from '../../utils/numericFormat';
+import '../../styles/header.scss';
 
 const Header = () => {
   const bitcoinAmount = useSelector((state) => state.bitcoin.bitcoinAmount);

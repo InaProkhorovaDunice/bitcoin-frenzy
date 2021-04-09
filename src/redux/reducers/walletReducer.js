@@ -11,16 +11,15 @@ import { INITIAL_WALLET_AMOUNT, ONE_TRANSACTION_AMOUNT } from '../../configs/ini
 
 const initialState = {
   walletAmount: INITIAL_WALLET_AMOUNT,
-  oneTransactionAmount: ONE_TRANSACTION_AMOUNT,
 };
 
 const walletHandler = {
   [depositWallet]: (state) => {
-    const updatedWalletAmount = state.walletAmount + state.oneTransactionAmount;
+    const updatedWalletAmount = state.walletAmount + ONE_TRANSACTION_AMOUNT;
     return { ...state, walletAmount: updatedWalletAmount };
   },
   [withdrawalWallet]: (state) => {
-    const updatedWalletAmount = state.walletAmount - state.oneTransactionAmount;
+    const updatedWalletAmount = state.walletAmount - ONE_TRANSACTION_AMOUNT;
     return { ...state, walletAmount: updatedWalletAmount };
   },
   [increaseWalletAfterSell]: (state, { payload }) => {

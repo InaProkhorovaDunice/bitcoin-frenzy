@@ -1,0 +1,44 @@
+@import 'variables';
+.header-container {
+  background-color: $main-blue;
+  color: $light-text;
+  height: 67px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: $middle-font-size;
+  padding: 0 22px;
+
+  .header-logo-block {
+    width: 178px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $big-font-size;
+    cursor: pointer;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $orange;
+      background-color: white;
+      font-size: 30px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid $orange;
+      border-radius: 50%;
+    }
+  }
+
+  .wallet-info-block {
+    text-align: left;
+    height: 80%;
+    .label {
+      margin: 5px 0;
+    }
+  }
+}

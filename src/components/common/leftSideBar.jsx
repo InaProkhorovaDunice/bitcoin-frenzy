@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavItem from './navItem';
-import '../../styles/common.scss';
+import '../../styles/leftBar.scss';
 
 const LeftSideBar = () => {
   const itemTabs = [
@@ -14,7 +14,7 @@ const LeftSideBar = () => {
   return (
     <div className={'left-bar-container'}>
       {itemTabs.map((el) => (
-        <NavItem item={el} key={el} />
+        <NavItem item={el} key={el.label} />
       ))}
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
+import './styles/pages.scss';
 import WalletPage from './components/walletPage';
 import BuyBitcoinPage from './components/buyBitcoinPage';
 import SellBitcoinPage from './components/sellBitcoinPage';

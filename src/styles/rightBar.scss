@@ -1,0 +1,22 @@
+@import 'variables';
+
+.right-bar-container {
+  width: 256px;
+  background-color: $main-grey;
+  overflow: auto;
+
+  .history-item-container {
+    border-bottom: 1px solid $dark-grey;
+    text-align: left;
+    font-size: $smallest-font-size;
+    color: $main-blue;
+
+    .item-date {
+      margin: 7px 0 14px 8px;
+    }
+
+    .item-action {
+      margin: 0 0 32px 33px;
+    }
+  }
+}
